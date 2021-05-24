@@ -1,14 +1,14 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "PDF-Generator";
 }
 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="~/Content/ebaak.css">
+    <link rel="stylesheet" href="~/Content/persianDatepicker-default.css" />
 </head>
 <body>
     <div class="container">
@@ -27,16 +27,16 @@
                     <span id="manufacturName">شرکت ستاره و صنعت معدن البرز (سهامی خاص)</span><br>
                     <span class="manufacturAddress">دفتر مرکزی:تهران-سید خندادن-خیابان شریعتی<br>خیابان جلفا-کوجه دانش-پلاک 17</span><br>
                     <span class="manufacturTel">تلفن:22877082-021 کد پستی:1541693633</span><br>
-                    <span class="financeCode">کد اقتصادی:<input type="text" style="width: 125px;"></span><br>
-                    <span class="police">پلیس راهنمایی رانندگی:<input type="text" style="width: 125px;"></span>
+                    <span class="financeCode">کد اقتصادی:<input id="eccCode" type="text" style="width: 125px;"></span><br>
+                    <span class="police">پلیس راهنمایی رانندگی:<input id="police" type="text" style="width: 125px;"></span>
                 </div>
 
 
                 <div class="left">
-                    <span id="date">تاریخ:<input id="date"></span><br>
+                    <span>تاریخ:<input id="date"></span><br>
                     <span id="documentNumber">شماره سند:<input id="docNo"></span><br>
                     <span id="motorVerificionCode">شماره مجوز موتور سیکلت:<input id="mVerCode"></span><br>
-                    <span id="cardexVerificionCode">شماره مجوز کاردکس:<input ></span><br>
+                    <span id="cardexVerificionCode">شماره مجوز کاردکس:<input id="cardexCode"></span><br>
                 </div>
             </div>
 
@@ -46,13 +46,13 @@
                 </span><br>
                 <div class="right">
                     <div class="one">
-                        <span class="conr">1.نام و نام خانوادگی:<input type="text"></span><br>
-                        <span class="conr2">2.نام و نام خانوادگی:<input type="text"></span>
+                        <span class="conr">1.نام و نام خانوادگی:<input class="nameA" type="text"></span><br>
+                        <span class="conr2">2.نام و نام خانوادگی:<input class="nameA" type="text"></span>
                     </div>
 
                     <div class="two">
-                        <span class="conr">سمت:<input type="text"></span><br>
-                        <span class="conr2">سمت:<input type="text"></span>
+                        <span class="conr">سمت:<input class="postA" type="text"></span><br>
+                        <span class="conr2">سمت:<input class="postA" type="text"></span>
                     </div>
 
                     <div class="three">
@@ -70,20 +70,21 @@
             </div>
 
             <div class="motorDetails">
+                <span id="detailsSpan">مشخصات موتور سیکلت</span>
                 <div class="right">
                     <div class="top">
-                        <span style="padding: 10px;position: relative;top: 7px;">شماره پلاک:</span>
+                        <span style="padding: 10px;position: relative;top: 20px;">شماره پلاک:</span>
                         <span class="rect">
                             <input id="plateNo" />
                             <span class="rect2">
-                                <input id="cityNo" />    
+                                <input id="cityNo" />
                             </span>
                         </span>
                     </div>
 
                     <div class="down">
                         <span style="position: relative; left: -5px;top: 5px;">تاریخ نصب:</span><br>
-                        <input id="date" type="text">
+                        <input id="dateD" type="text">
                     </div>
                 </div>
 
@@ -135,36 +136,36 @@
 
                         <span>
                             تــعــداد مـحور:
-                            <input type="text">
+                            <input id="axis" type="text">
                         </span><br>
 
 
                         <span>
                             تــعــداد چــرخ:
-                            <input type="text">
+                            <input id="wheels" type="text">
                         </span><br>
 
 
                         <span>
                             ظــــرفـــــیــت:
-                            <input type="text">
+                            <input id="capacity" type="text">
                         </span><br>
 
 
                         <span>
                             تعداد سیلنـدر:
-                            <input type="text">
+                            <input id="cyl" type="text">
                         </span><br>
 
 
                         <span>
                             نـــوع سـوخـت:
-                            <input type="text">
+                            <input id="fuel" type="text">
                         </span><br>
 
                         <span>
                             حجم سـیلـنـدر:
-                            <input type="text">
+                            <input id="vol" type="text">
                         </span><br>
 
                     </div>
@@ -172,19 +173,22 @@
             </div>
 
             <div class="extra">
-
+                <span id="extraSpan">توضیحات</span>
+                <textarea></textarea>
             </div>
 
             <div class="buyerDetails">
+                <span id="buyerSpan">مشخصات عامل فروش</span>
+
                 <div class="salerInfo">
                     <div class="top">
                         <span id="name">
                             نام و نام خانوادگی (شخص حقیقی/حقوقی):
-                            <input type="text">
+                            <input id="sName" type="text">
                         </span>
 
                         <span id="nationalId">
-                            شماره ملی:<input>
+                            شماره ملی:<input type="text" id="sNat">
                         </span><br>
 
                         <span id="address">
@@ -201,12 +205,12 @@
                     <div class="down">
                         <span id="mobile">
                             تلفن همراه:
-                            <input type="text">
+                            <input id="sMob" type="text">
                         </span>
 
                         <span id="telephone">
                             تلفن ثابت:
-                            <input type="text">
+                            <input id="sTel" type="text">
                         </span>
 
                         <span id="sig">
@@ -222,7 +226,7 @@
                     <div class="right">
                         <span id="name">
                             نام و نام خانوادگی:
-                            <input type="text">
+                            <input id="bName" type="text">
                         </span><br>
 
                         <span id="fatherName">
@@ -242,7 +246,7 @@
 
                         <span id="address">
                             آدرس محل سکونت:
-                            <input type="text">
+                            <input style="width:420px !important" type="text">
                         </span><br>
 
                         <span id="postalCode">
@@ -259,9 +263,9 @@
                     </div>
 
                     <div class="left">
-                        <span id="birthDate">
+                        <span>
                             تاریخ ثبت/تولد:
-                            <input type="text">
+                            <input id="birthDate"s type="text">
                         </span><br>
 
                         <span id="nationalId2">
@@ -314,10 +318,11 @@
         </div>
     </div>
 
-
     <script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/persianDatepicker.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+
             $("#hide").on('click', function () {
                 let a = $("#bodyNo").css("border-color").toLowerCase();
                 let b = 'rgba(0, 0, 0, 0)';
@@ -329,7 +334,7 @@
                 }
                 else {
                     $("input,textarea,select").css("border-color", "transparent");
-                }   
+                }
 
 
             });
@@ -379,6 +384,23 @@
                         $("#plateNo").val(parseInt(result.PlateNo));
                         $("#system").val(result.System);
                         $("#type").val(result.Type);
+
+                        $("#cardexCode").val(result.CardexCode);
+                        $("#eccCode").val(result.EconomicCode);
+                        $("#police").val(result.Police);
+                        $(".nameA").val(result.Name);
+                        $(".postA").val(result.Post);
+                        $("#wheels").val(result.Wheels);
+                        $("#axis").val(result.Axis);
+                        $("#capacity").val(result.Capacity);
+                        $("#cyl").val(result.Cylender);
+                        $("#fuel").val(result.Fuel);
+                        $("#vol").val(result.Volume);
+                        $("#sName").val(result.SellerName);
+                        $("#sNat").val(result.NationalId);
+                        $("#addressTxt").val(result.Address);
+                        $("#sMob").val(result.Mobile);
+                        $("#sTel").val(result.Telephone);
                     },
                     error: function (err) {
                         alert("خطا در انجام عملیات" + "\n" + "لطفاَ مجدد تلاش کنید" + "\n" + err.responseText);
@@ -388,6 +410,7 @@
 
             });
 
+            $("#birthDate,#date,#dateD").persianDatepicker();
 
 
 

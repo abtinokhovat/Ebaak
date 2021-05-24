@@ -30,6 +30,38 @@ namespace Ebaak.Models
         public string Code { get; set; }
         [JsonProperty("F11")]
         public string DocumentNo { get; set; }
+        [JsonProperty("F12")]
+        public string CardexCode { get; set; }
+        [JsonProperty("F13")]
+        public string EconomicCode { get; set; }
+        [JsonProperty("F14")]
+        public string Police { get; set; }
+        [JsonProperty("F15")]
+        public string Name { get; set; }
+        [JsonProperty("F16")]
+        public string Post { get; set; }
+        [JsonProperty("F17")]
+        public string Wheels { get; set; }
+        [JsonProperty("F18")]
+        public string Axis { get; set; }
+        [JsonProperty("F19")]
+        public string Capacity { get; set; }
+        [JsonProperty("F20")]
+        public string Cylender { get; set; }
+        [JsonProperty("F21")]
+        public string Fuel { get; set; }
+        [JsonProperty("F22")]
+        public string Volume { get; set; }
+        [JsonProperty("F23")]
+        public string SellerName { get; set; }
+        [JsonProperty("F24")]
+        public string NationalId { get; set; }
+        [JsonProperty("F25")]
+        public string Address { get; set; }
+        [JsonProperty("F26")]
+        public string Mobile { get; set; }
+        [JsonProperty("F27")]
+        public string Telephone { get; set; }
     }
 
     
